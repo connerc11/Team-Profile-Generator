@@ -1,10 +1,16 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const { inheritInnerComments } = require('@babel/types');
-const { array } = require('yargs');
+const generateHTML = require('./src/generateHTML');
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const { default: generate } = require('@babel/generator');
+
 // const path = require('path');
 // const fileDirectory = path.resolve(__dirname, "dist");
 // const filePath = path.join(fileDirectory, "index.html");
+
+const team = []
 
 const managerData = () => {
     return inquirer.prompt([
@@ -32,60 +38,65 @@ const managerData = () => {
     ])
 }
 
-const employeeData = () => {
-    return inquirer.prompt([
+const internData = () => {
+     inquirer.prompt([
+        
         {
-            type: "list",
-            name: "employeeRole",
-            message: "What is the role of the employee?",
-            choices: ["Intern", "Engineer"]
+            type: "input",
+            name: "internName",
+            message: "What is the name of the intern?"
         },
         {
             type: "input",
-            name: "employeeName",
-            message: "What is the name of the employee?"
+            name: "internId",
+            message: "What is the ID of the intern?"
         },
         {
             type: "input",
-            name: "employeeId",
-            message: "What is the ID of the employee?"
+            name: "internEmail",
+            message: "What is the intern's email address?"
         },
-        {
-            type: "input",
-            name: "employeeEmail",
-            message: "What is the employee's email address?"
-        },
-        {
-            type: "input",
-            name: "githubUsername",
-            message: "What is the Github username for the engineer?",
-            when: (input) => input.employeeRole === "Engineer",
-            validate: answer => {
-                if (answer) {
-                    return true;
-                }else{
-                    console.log("enter the correct github username") 
-                }
-            }
-
-        },
+        
         {
             type: "input",
             name: "internSchool",
             message: "What school did the intern attend?",
-            when: (input) => input.employeeRole === "Intern",
-            validate: answer => {
-                if (answer) {
-                    return true;
-                }else{
-                    console.log("enter the correct school for the intern") 
-                }
-            }
         },
+    ]).then(answer => {
+        const intern = new Intern (answer.internName, answer.internId, answer.internEmail, answer.internSchool);
+        team.push(intern);
+        menu();
+    })
+}
 
-
-
-    ])
+const engineerData = () => {
+     inquirer.prompt([
+     
+        {
+            type: "input",
+            name: "engineerName",
+            message: "What is the name of the engineer?"
+        },
+        {
+            type: "input",
+            name: "engineerId",
+            message: "What is the ID of the engineer?"
+        },
+        {
+            type: "input",
+            name: "engineerEmail",
+            message: "What is the engineer's email address?"
+        },
+        {
+            type: "input",
+            name: "gitHubUsername",
+            message: "What is the Github username for the engineer?",
+        },
+    ]).then(answer => {
+        const engineer = new Engineer (answer.engineerName, answer.engineerId, answer.engineerEmail, answer.gitHubUsername);
+        team.push(engineer)
+        menu();
+    })
 }
 
 
@@ -104,5 +115,31 @@ const writeFile = data => {
 
 //     console.log('Portfolio complete! Check out index.html to see the output!');
 // });
+
+const init = function(){
+    managerData().then(answer => {
+        const manager = new Manager(answer.managerName, answer.managerId, answer.managerEmail, answer.officeNumber);
+        team.push(manager);
+        menu();
+    })
+}
+const menu = () => {
+    inquirer.prompt({
+        type: "list",
+        message: "Would you like to add an employee?",
+        choices: ['Engineer', 'Intern', 'Done'],
+        name: 'menuChoices'
+      
+    }).then(answer => {
+        if(answer.menuChoices === "Engineer"){
+            engineerData()
+        }else if(answer.menuChoices === "Intern"){
+            internData()
+        }else {
+            console.log(team)
+            writeFile(generateHTML(team))
+        }
+    })
+}
 
 init();
