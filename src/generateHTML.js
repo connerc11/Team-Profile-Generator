@@ -1,5 +1,21 @@
 function buildManagerCard(manager){
-    return `<li> ${manager.getName()}</li>`
+    return `
+    <div class="col-4">
+    <div class="card h-100">
+    <div class="card-header">
+    <h3>${manager.name}</h3>
+    <h4> testing </h4>
+    </div>
+    <div class="card-body">
+    <p class="id">ID- ${manager.Id}</p>
+    <p class="email">Email- ${manager.email}</p>
+    <p class="officeID">Office Number- ${manager.officeNumber} </p>
+    </div>
+  </div>
+</div>
+
+    
+    <li> ${manager.getName()}</li>`
 }
 function buildEngineerCard(engineer){
     return `<li> ${engineer.getName()}</li>`
@@ -31,6 +47,8 @@ function generateHTML(team){
      ${buildTeam(team)}   
      
     </body>
+
+    <script href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"> </script>
     </html>`
 }
 
