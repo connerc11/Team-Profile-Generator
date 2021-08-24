@@ -6,9 +6,6 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const { default: generate } = require('@babel/generator');
 
-// const path = require('path');
-// const fileDirectory = path.resolve(__dirname, "dist");
-// const filePath = path.join(fileDirectory, "index.html");
 
 const team = []
 
@@ -110,11 +107,6 @@ const writeFile = data => {
 }
 
 
-// fs.writeFile('index.html', generatePage(name, inquirer), err => {
-//     if (err) throw err;
-
-//     console.log('Portfolio complete! Check out index.html to see the output!');
-// });
 
 const init = function(){
     managerData().then(answer => {

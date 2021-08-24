@@ -1,4 +1,4 @@
-function buildManagerCard(manager){
+function buildManagerCard(manager) {
     return `
     <div class="col-4">
     <div class="card h-100">
@@ -8,13 +8,13 @@ function buildManagerCard(manager){
     </div>
     <div class="card-body">
     <p class="id">ID- ${manager.Id}</p>
-    <p class="email">Email- ${manager.email}</p>
+    <p class="email"> Email- <a href="mailto:${manager.email}"> ${manager.email}</a></p>
     <p class="officeID">Office Number- ${manager.officeNumber}</p>
     </div>
   </div>
 </div>`
 }
-function buildEngineerCard(engineer){
+function buildEngineerCard(engineer) {
     return `<div class="col-4">
     <div class="card h-100">
     <div class="card-header">
@@ -23,13 +23,13 @@ function buildEngineerCard(engineer){
     </div>
     <div class="card-body">
     <p class="id">ID- ${engineer.Id}</p>
-    <p class="email">Email- ${engineer.email}</p>
-    <p class="gitHub">Office Github- ${engineer.gitHub} </p>
+    <p class="email"> Email- <a href="mailto:${engineer.email}"> ${engineer.email}</a></p>
+    <p class="gitHub"> Github- ${engineer.gitHub} </p>
     </div>
   </div>
 </div>`
 }
-function buildInternCard(intern){
+function buildInternCard(intern) {
     return `<div class="col-4">
     <div class="card h-100">
     <div class="card-header">
@@ -38,35 +38,34 @@ function buildInternCard(intern){
     </div>
     <div class="card-body">
     <p class="id">ID- ${intern.Id}</p>
-    <p class="email">Email- ${intern.email}</p>
-    <p class="school">School- ${intern.school} </p>
+    <p class="email">Email- <a href="mailto:${intern.email}"> ${intern.email}</a></p>
+    <p class="school"> School- ${intern.school} </p>
     </div>
   </div>
 </div>`
 }
 
-function buildTeam(team){
+function buildTeam(team) {
     const HTML = [];
     HTML.push(team.filter(teamMember => teamMember.getRole() === "Manager").map(manager => buildManagerCard(manager)));
     HTML.push(team.filter(teamMember => teamMember.getRole() === "Intern").map(intern => buildInternCard(intern)));
     HTML.push(team.filter(teamMember => teamMember.getRole() === "Engineer").map(engineer => buildEngineerCard(engineer)));
-    
+
     return HTML.join("")
 }
 
 
-function generateHTML(team){
+function generateHTML(team) {
     return `<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Team Portfolio Generator</title>
+        <title>Team Profile Generator</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        
-
     </head>
+    
     <body>
     <header> 
     <nav class="navbar" id="navbar"> 
@@ -75,9 +74,8 @@ function generateHTML(team){
     </header>
     <main>
     <div class="container">
-    <div class="row justify-content-center">
-  
-     ${buildTeam(team)}   
+    <div class="row justify-content-center" id="team-portfolio">
+    ${buildTeam(team)}   
      </div>
      </div>
      </main>
