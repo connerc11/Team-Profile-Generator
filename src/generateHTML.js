@@ -24,7 +24,7 @@ function buildEngineerCard(engineer) {
     <div class="card-body">
     <p class="id">ID- ${engineer.Id}</p>
     <p class="email"> Email- <a href="mailto:${engineer.email}"> ${engineer.email}</a></p>
-    <p class="gitHub"> Github- ${engineer.gitHub} </p>
+    <p class="gitHub"> Github- <a href="https://github.com/${engineer.gitHub}">${engineer.gitHub} </a></p>
     </div>
   </div>
 </div>`
