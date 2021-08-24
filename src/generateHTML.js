@@ -4,7 +4,7 @@ function buildManagerCard(manager){
     <div class="card h-100">
     <div class="card-header">
     <h3> ${manager.name}</h3>
-    <h4> Profile Information! </h4>
+    <h4> <i class="fas fa-mug-hot"></i>" Profile Information! </h4>
     </div>
     <div class="card-body">
     <p class="id">ID- ${manager.Id}</p>
@@ -19,7 +19,7 @@ function buildEngineerCard(engineer){
     <div class="card h-100">
     <div class="card-header">
     <h3> ${engineer.name}</h3>
-    <h4> Profile Information </h4>
+    <h4> <i class="fas fa-glasses"></i>" Profile Information </h4>
     </div>
     <div class="card-body">
     <p class="id">ID- ${engineer.Id}</p>
@@ -34,7 +34,7 @@ function buildInternCard(intern){
     <div class="card h-100">
     <div class="card-header">
     <h3> ${intern.name}</h3>
-    <h4> Profile Information </h4>
+    <h4> <i class="fas fa-user-graduate"></i> Profile Information </h4>
     </div>
     <div class="card-body">
     <p class="id">ID- ${intern.Id}</p>
@@ -64,6 +64,7 @@ function generateHTML(team){
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Team Portfolio Generator</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
 
     </head>
     <body>
@@ -74,7 +75,7 @@ function generateHTML(team){
     </header>
     <main>
     <div class="container">
-    <div class="row justify-content-center"
+    <div class="row justify-content-center">
   
      ${buildTeam(team)}   
      </div>
@@ -84,7 +85,7 @@ function generateHTML(team){
     </body>
  
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"> 
     </html>`
 }
 
