@@ -4,7 +4,7 @@ function buildManagerCard(manager){
     <div class="card h-100">
     <div class="card-header">
     <h3>${manager.name}</h3>
-    <h4> testing </h4>
+    <h4> Profile Information! </h4>
     </div>
     <div class="card-body">
     <p class="id">ID- ${manager.Id}</p>
@@ -12,16 +12,37 @@ function buildManagerCard(manager){
     <p class="officeID">Office Number- ${manager.officeNumber} </p>
     </div>
   </div>
-</div>
-
-    
-    <li> ${manager.getName()}</li>`
+</div>`
 }
 function buildEngineerCard(engineer){
-    return `<li> ${engineer.getName()}</li>`
+    return `<div class="col-4">
+    <div class="card h-100">
+    <div class="card-header">
+    <h3>${engineer.name}</h3>
+    <h4> Profile Information </h4>
+    </div>
+    <div class="card-body">
+    <p class="id">ID- ${engineer.Id}</p>
+    <p class="email">Email- ${engineer.email}</p>
+    <p class="gitHub">Office Github- ${engineer.gitHub} </p>
+    </div>
+  </div>
+</div>`
 }
 function buildInternCard(intern){
-    return `<li> ${intern.getName()}</li>`
+    return `<div class="col-4">
+    <div class="card h-100">
+    <div class="card-header">
+    <h3>${intern.name}</h3>
+    <h4> Profile Information </h4>
+    </div>
+    <div class="card-body">
+    <p class="id">ID- ${intern.Id}</p>
+    <p class="email">Email- ${intern.email}</p>
+    <p class="school">School- ${intern.school} </p>
+    </div>
+  </div>
+</div>`
 }
 
 function buildTeam(team){
