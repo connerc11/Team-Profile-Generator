@@ -1,4 +1,4 @@
-# READme generator!
+# READme Team-profile-generator!
    
   * [Information](#information)
   * [Installation](#installation)
@@ -10,8 +10,8 @@
   
   # Information
   ~ there is Information, Installation, Usage, Contributing, Test, Questions and License
-  ![Get Started](./assets/images/image.png)
-  (https://drive.google.com/file/d/1S5_bKyaVtQpKVYXyxP8tKzO4OaNXTmoP/view)
+  ![Get Started](./src/image.png)
+ ~ (https://drive.google.com/file/d/1ZkIltOvy7MyhO3SbGx1vF1i008Vli-vk/view)
 
   # Installation
   ~ It will be isntalled using node and updated based on quality of information aquired.
