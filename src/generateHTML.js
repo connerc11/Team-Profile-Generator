@@ -64,12 +64,13 @@ function generateHTML(team) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Team Profile Generator</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="style.css"></script>
     </head>
     
     <body>
     <header> 
     <nav class="navbar" id="navbar"> 
-    <span class="navbar-brand mb-0 h1 w-100 text-center" id="nav"> Team Profile Generator</span>
+    <span class="navbar-brand mb-0 h1 w-100 text-center" id="nav"> Team Profile's </span>
     </nav>
     </header>
     <main>

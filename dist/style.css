@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 5px;
+}
+
+#navbar{
+    background-color: aqua;
+    color: orange;
+    font-size: 60px;
+}
+#nav {
+    font-size: 50px;
+}
+
+.card-header {
+    background-color: aqua;
+    color: orange;
+}
+
+.card-header {
+    background-color: orange;
+    color: aqua;
+}
+
+.container {
+    margin: 125px auto;
+    justify-content: space-around;
+    
+    
+}
+
+.card-body {  
+      background-color: aqua;
+      color: orange;
+    }
